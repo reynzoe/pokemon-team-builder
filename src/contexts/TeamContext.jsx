@@ -1,36 +1,72 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useCallback } from "react";
 
-// Create context
-const TeamContext = createContext();
+export const TeamContext = createContext();
 
-// Provider component
-const TeamProvider = ({ children }) => {
+export const TeamProvider = ({ children }) => {
+    // Initialize team from localStorage
     const [team, setTeam] = useState(() => {
-        const savedTeam = localStorage.getItem("pokemonTeam");
-        return savedTeam ? JSON.parse(savedTeam) : [];
+        try {
+            const savedTeam = localStorage.getItem("pokemonTeam");
+            return savedTeam ? JSON.parse(savedTeam) : [];
+        } catch (error) {
+            console.error("Error loading team from localStorage:", error);
+            return [];
+        }
     });
 
+    // Save to localStorage whenever team changes
     useEffect(() => {
-        localStorage.setItem("pokemonTeam", JSON.stringify(team));
+        try {
+            localStorage.setItem("pokemonTeam", JSON.stringify(team));
+        } catch (error) {
+            console.error("Error saving team to localStorage:", error);
+        }
     }, [team]);
 
-    const addToTeam = (pokemon) => {
-        if (team.length < 6 && !team.some(p => p.name === pokemon.name)) {
-            setTeam([...team, pokemon]);
-        }
-    };
+    // Add Pokemon to team
+    const addToTeam = useCallback((pokemon) => {
+        setTeam(currentTeam => {
+            // Check if team is full
+            if (currentTeam.length >= 6) {
+                alert("Your team is full! Remove a Pokemon first.");
+                return currentTeam;
+            }
 
-    const removeFromTeam = (name) => {
-        setTeam(team.filter(p => p.name !== name));
-    };
+            // Check if Pokemon already in team
+            if (currentTeam.some(p => p.id === pokemon.id)) {
+                alert(`${pokemon.name} is already in your team!`);
+                return currentTeam;
+            }
 
-    const isInTeam = (name) => team.some(p => p.name === name);
+            return [...currentTeam, pokemon];
+        });
+    }, []);
+
+    // Remove Pokemon from team
+    const removeFromTeam = useCallback((pokemonId) => {
+        setTeam(currentTeam => currentTeam.filter(p => p.id !== pokemonId));
+    }, []);
+
+    // Check if Pokemon is in team
+    const inTeam = useCallback((pokemonId) => {
+        return team.some(p => p.id === pokemonId);
+    }, [team]);
+
+    // Check if team is full
+    const teamFull = team.length >= 6;
+
+    const value = {
+        team,
+        addToTeam,
+        removeFromTeam,
+        inTeam,
+        teamFull,
+        teamCount: team.length
+    };
 
     return (
-        <TeamContext.Provider value={{ team, addToTeam, removeFromTeam, isInTeam }}>
+        <TeamContext.Provider value={value}>
             {children}
         </TeamContext.Provider>
     );
 };
-
-export { TeamProvider, TeamContext };

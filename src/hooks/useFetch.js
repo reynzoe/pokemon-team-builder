@@ -1,3 +1,4 @@
+// src/hooks/useFetch.js
 import { useState, useEffect } from "react";
 
 export function useFetch(url) {
@@ -7,25 +8,34 @@ export function useFetch(url) {
 
     useEffect(() => {
         let isMounted = true; // Prevent state update if component unmounts
-        setLoading(true);
 
-        fetch(url)
-            .then((res) => {
-                if (!res.ok) throw new Error("Network response was not ok");
-                return res.json();
-            })
-            .then((json) => {
-                if (isMounted) {
-                    setData(json);
-                    setLoading(false);
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
-            })
-            .catch((err) => {
+
+                const result = await response.json();
+
+                if (isMounted) {
+                    setData(result);
+                }
+            } catch (err) {
                 if (isMounted) {
                     setError(err);
+                }
+            } finally {
+                if (isMounted) {
                     setLoading(false);
                 }
-            });
+            }
+        };
+
+        fetchData();
 
         return () => {
             isMounted = false;
