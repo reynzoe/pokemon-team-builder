@@ -12,6 +12,7 @@ import "./styles/buttons.css";
 import "./styles/teamSidebar.css";
 import "./styles/background.css";
 import "./styles/Navbar.css";
+import "./styles/TeamView.css";
 
 function App() {
     const [activeTab, setActiveTab] = useState("pokedex");

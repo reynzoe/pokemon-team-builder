@@ -9,66 +9,53 @@ const TeamView = () => {
     const renderEmptySlots = () => {
         const emptySlots = 6 - teamCount;
         return Array.from({ length: emptySlots }, (_, index) => (
-            <div key={`empty-${index}`} className="col-md-2 col-4">
-                <div className="card h-100 text-center" style={{ minHeight: "200px", border: "2px dashed #dee2e6" }}>
-                    <div className="card-body d-flex align-items-center justify-content-center">
-                        <div className="text-muted">
-                            <div style={{ fontSize: "2rem" }}>+</div>
-                            <small>Empty Slot</small>
-                        </div>
-                    </div>
+            <div key={`empty-${index}`} className="team-card-container">
+                <div className="empty-slot-card">
+                    <div className="slot-icon">＋</div>
+                    <small>Empty Slot</small>
                 </div>
             </div>
         ));
     };
 
     return (
-        <div className="container mt-4">
-            <div className="d-flex justify-content-between align-items-center mb-4">
+        <div className="team-view-container">
+            <div className="team-header">
                 <h3>Your Team</h3>
-                <span className="badge bg-primary fs-6">
-                    {teamCount}/6 Pokémon
-                </span>
+                {/* Only show counter if teamCount > 0 */}
+                {teamCount > 0 && (
+                    <div className="team-count-badge">{teamCount}/6 Pokémon</div>
+                )}
             </div>
 
             {teamCount === 0 ? (
-                <div className="alert alert-info text-center">
-                    <h4>No Pokémon in your team yet!</h4>
+                <div className="team-status-message info">
+                    <strong>No Pokémon in your team yet!</strong>
                     <p>Visit the Pokédex to start building your dream team.</p>
                 </div>
             ) : (
-                <div className="row g-3">
+                <div className="team-grid">
                     {team.map((pokemon) => (
-                        <div key={pokemon.id} className="col-md-2 col-4">
-                            <div className="card h-100 shadow-sm" style={{ minHeight: "200px" }}>
-                                <img
-                                    src={pokemon.img}
-                                    alt={pokemon.name}
-                                    className="card-img-top"
-                                    style={{ height: "100px", objectFit: "contain", padding: "5px" }}
-                                />
-                                <div className="card-body text-center p-2">
-                                    <h6 className="card-title small text-capitalize mb-1">
-                                        {pokemon.name}
-                                    </h6>
-                                    <div className="mb-2">
-                                        {pokemon.types.map((type) => (
-                                            <span
-                                                key={type}
-                                                className={`badge bg-${getTypeColor(type)} me-1`}
-                                                style={{ fontSize: "0.6rem" }}
-                                            >
-                                                {type}
-                                            </span>
-                                        ))}
-                                    </div>
-                                    <button
-                                        className="btn btn-danger btn-sm"
-                                        onClick={() => removeFromTeam(pokemon.id)}
-                                    >
-                                        Remove
-                                    </button>
+                        <div key={pokemon.id} className="team-card-container">
+                            <div className="team-card">
+                                <img src={pokemon.img} alt={pokemon.name} />
+                                <h6 className="card-title">{pokemon.name}</h6>
+                                <div className="type-badges-container">
+                                    {pokemon.types.map((type) => (
+                                        <span
+                                            key={type}
+                                            className={`type-badge bg-${getTypeColor(type)}`}
+                                        >
+                                            {type}
+                                        </span>
+                                    ))}
                                 </div>
+                                <button
+                                    className="btn btn-danger btn-sm btn-remove"
+                                    onClick={() => removeFromTeam(pokemon.id)}
+                                >
+                                    Remove
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -77,10 +64,8 @@ const TeamView = () => {
             )}
 
             {teamCount === 6 && (
-                <div className="alert alert-success mt-4 text-center">
-                    <strong>🎉 Your team is complete!</strong>
-                    <br />
-                    <small>You have assembled a team of 6 Pokémon. Ready for battle!</small>
+                <div className="team-status-message success">
+                    🎉 Team Complete! <small>(6 Pokémon)</small>
                 </div>
             )}
         </div>

@@ -1,0 +1,90 @@
+/* Grid: 3x2 fixed layout */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+    grid-template-rows: repeat(2, auto);   /* 2 rows */
+    gap: 1rem;
+    max-width: 600px; /* fits nicely centered */
+    margin: 0 auto;
+}
+
+/* Card containers scale within grid */
+.team-card-container {
+    width: 100%;
+    aspect-ratio: 1; /* keeps cards square */
+}
+
+/* Shared card styling (Pokémon + Empty slots) */
+.team-card,
+.empty-slot-card {
+    height: 100%;
+    border: 2px solid var(--retro-border, #333);
+    background-color: #ffffff;
+    box-shadow: 4px 4px 0 var(--retro-border, #333);
+    padding: 0.5rem;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.team-card:hover,
+.empty-slot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0 var(--retro-border, #111);
+}
+
+/* Empty slot style */
+.empty-slot-card {
+    border: 2px dashed #bbb;
+    background-color: #f1f1f1;
+    color: #777;
+}
+
+.empty-slot-card .slot-icon {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Counter (small retro box, only shows if > 0) */
+.team-count-badge {
+    background-color: #f8f9fa;
+    border: 2px solid var(--retro-border, #333);
+    box-shadow: 2px 2px 0 var(--retro-border, #333);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Status messages (No Pokémon / Team Complete) */
+.team-status-message {
+    text-align: center;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 400px;
+    border: 2px solid var(--retro-border, #333);
+    background-color: #f9f9f9;
+    box-shadow: 4px 4px 0 var(--retro-border, #333);
+    border-radius: 8px;
+}
+
+/* Empty team specific look */
+.team-status-message.empty {
+    border-style: dashed;
+    color: #555;
+}
+
+/* Team complete look */
+.team-status-message.complete {
+    border-color: #28a745;
+    background-color: #e9f9ee;
+    color: #155724;
+}
