@@ -1,0 +1,33 @@
+.navbar-retro {
+    background:
+            repeating-linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.08) 0px,
+                    rgba(255, 255, 255, 0.08) 2px,
+                    transparent 2px,
+                    transparent 6px
+            ),
+            linear-gradient(90deg, #003db6, #003db6);
+    border-bottom: 4px solid #222;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.6);
+}
+
+.navbar-title {
+    font-size: 2rem !important; /* fixed syntax */
+    font-weight: 900;
+    color: #ffcb05 !important; /* Pokémon yellow */
+    text-shadow: -2px 2px 0 #2a2a72, 2px -2px 0 #2a2a72, 2px 2px 0 #2a2a72;
+    letter-spacing: 2px;
+}
+
+/* Make the buttons bigger */
+.navbar-btn {
+    font-weight: bold;
+    border: 2px solid #fff;
+    text-shadow: 1px 1px 0 #000;
+
+    font-size: 1.2rem; /* increase text size */
+    padding: 0.75rem 1.2rem; /* increase padding for bigger click area */
+}
+
+
