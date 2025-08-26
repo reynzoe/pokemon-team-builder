@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { TeamContext } from "../contexts/TeamContext";
+import { getTypeColor } from '../utils/typeColors';
 
 const TeamSidebar = () => {
     const { team, removeFromTeam, teamCount } = useContext(TeamContext);
@@ -59,7 +60,11 @@ const TeamSidebar = () => {
                                         </h6>
                                         <div className="mb-1">
                                             {pokemon.types.slice(0, 2).map((type) => (
-                                                <span key={type} className="badge bg-info me-1" style={{ fontSize: "0.6rem" }}>
+                                                <span
+                                                    key={type}
+                                                    className={`badge bg-${getTypeColor(type)} me-1`}
+                                                    style={{ fontSize: "0.6rem" }}
+                                                >
                                                     {type}
                                                 </span>
                                             ))}

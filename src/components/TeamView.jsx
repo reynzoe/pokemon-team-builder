@@ -1,6 +1,7 @@
 // src/components/TeamView.jsx
 import React, { useContext } from "react";
 import { TeamContext } from "../contexts/TeamContext";
+import { getTypeColor } from '../utils/typeColors';
 
 const TeamView = () => {
     const { team, removeFromTeam, teamCount } = useContext(TeamContext);
@@ -52,7 +53,11 @@ const TeamView = () => {
                                     </h6>
                                     <div className="mb-2">
                                         {pokemon.types.map((type) => (
-                                            <span key={type} className="badge bg-info me-1 small">
+                                            <span
+                                                key={type}
+                                                className={`badge bg-${getTypeColor(type)} me-1`}
+                                                style={{ fontSize: "0.6rem" }}
+                                            >
                                                 {type}
                                             </span>
                                         ))}
