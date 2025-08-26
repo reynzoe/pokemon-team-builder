@@ -36,12 +36,6 @@ function App() {
                     {activeTab === "team" && <TeamView />}
                 </main>
 
-                <footer className="bg-dark text-white text-center py-3 mt-auto">
-                    <small>
-                        Built with React, Context API, and PokéAPI |
-                        Real-time team updates with localStorage persistence
-                    </small>
-                </footer>
             </div>
         </TeamProvider>
     );

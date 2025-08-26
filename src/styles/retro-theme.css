@@ -1,0 +1,404 @@
+/* Retro Pokemon Game Boy Theme CSS */
+
+/* Import a retro pixel font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Root variables for the retro color scheme */
+:root {
+    --gameboy-dark: #0f380f;
+    --gameboy-dark-mid: #306230;
+    --gameboy-light-mid: #8bac0f;
+    --gameboy-light: #9bbc0f;
+    --gameboy-screen: #c7d323;
+    --gameboy-border: #2d5016;
+    --retro-shadow: 2px 2px 0px var(--gameboy-border);
+    --retro-inset: inset -2px -2px 0px var(--gameboy-border), inset 2px 2px 0px var(--gameboy-light);
+}
+
+/* Global body styling */
+body {
+    font-family: 'Press Start 2P', monospace !important;
+    background-color: var(--gameboy-screen) !important;
+    background-image:
+            radial-gradient(circle at 1px 1px, rgba(15,56,15,0.1) 1px, transparent 0);
+    background-size: 4px 4px;
+    font-size: 8px !important;
+    line-height: 1.6 !important;
+}
+
+/* Navigation Bar */
+.navbar {
+    background: linear-gradient(135deg, var(--gameboy-dark) 0%, var(--gameboy-dark-mid) 100%) !important;
+    border-bottom: 4px solid var(--gameboy-border) !important;
+    box-shadow: 0 4px 0px var(--gameboy-border) !important;
+    padding: 1rem 0 !important;
+}
+
+.navbar-brand {
+    font-size: 12px !important;
+    text-shadow: 2px 2px 0px var(--gameboy-border) !important;
+    color: var(--gameboy-light) !important;
+}
+
+.navbar .btn {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 8px !important;
+    padding: 8px 12px !important;
+    border: 2px solid var(--gameboy-border) !important;
+    text-transform: uppercase !important;
+    box-shadow: var(--retro-shadow) !important;
+    transition: all 0.1s ease !important;
+}
+
+.navbar .btn:hover {
+    transform: translate(1px, 1px) !important;
+    box-shadow: 1px 1px 0px var(--gameboy-border) !important;
+}
+
+.navbar .btn-light {
+    background-color: var(--gameboy-light) !important;
+    color: var(--gameboy-dark) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.navbar .btn-outline-light {
+    background-color: transparent !important;
+    color: var(--gameboy-light) !important;
+    border-color: var(--gameboy-light) !important;
+}
+
+/* Container and Layout */
+.container-fluid {
+    padding: 2rem 1rem !important;
+}
+
+/* Headers */
+h2, h3, h4, h5, h6 {
+    font-family: 'Press Start 2P', monospace !important;
+    color: var(--gameboy-dark) !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+    text-shadow: 1px 1px 0px var(--gameboy-light-mid) !important;
+}
+
+h2 { font-size: 14px !important; }
+h3 { font-size: 12px !important; }
+h4, h5, h6 { font-size: 10px !important; }
+
+/* Cards - Main styling */
+.card {
+    background-color: var(--gameboy-light) !important;
+    border: 3px solid var(--gameboy-border) !important;
+    border-radius: 0 !important;
+    box-shadow: var(--retro-inset) !important;
+    margin-bottom: 1rem !important;
+    font-family: 'Press Start 2P', monospace !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--gameboy-dark-mid) 0%, var(--gameboy-dark) 100%) !important;
+    border-bottom: 2px solid var(--gameboy-border) !important;
+    color: var(--gameboy-light) !important;
+    font-size: 8px !important;
+    text-transform: uppercase !important;
+    padding: 0.75rem !important;
+}
+
+.card-body {
+    padding: 0.75rem !important;
+    color: var(--gameboy-dark) !important;
+}
+
+.card-title {
+    font-size: 8px !important;
+    text-transform: uppercase !important;
+    color: var(--gameboy-dark) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.card-img-top {
+    background-color: var(--gameboy-screen) !important;
+    border: 2px solid var(--gameboy-border) !important;
+    border-radius: 0 !important;
+    image-rendering: pixelated !important;
+    padding: 0.5rem !important;
+}
+
+/* Pokemon Cards specific styling */
+.card h-100 {
+    transition: all 0.2s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-2px) !important;
+    box-shadow:
+            var(--retro-inset),
+            0 4px 0px var(--gameboy-border) !important;
+}
+
+/* Buttons */
+.btn {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 6px !important;
+    text-transform: uppercase !important;
+    border-radius: 0 !important;
+    border: 2px solid var(--gameboy-border) !important;
+    padding: 0.5rem 0.75rem !important;
+    box-shadow: var(--retro-shadow) !important;
+    transition: all 0.1s ease !important;
+}
+
+.btn:hover, .btn:focus {
+    transform: translate(1px, 1px) !important;
+    box-shadow: 1px 1px 0px var(--gameboy-border) !important;
+}
+
+.btn:active {
+    transform: translate(2px, 2px) !important;
+    box-shadow: none !important;
+}
+
+/* Button variants */
+.btn-primary {
+    background-color: var(--gameboy-dark-mid) !important;
+    color: var(--gameboy-light) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.btn-success {
+    background-color: var(--gameboy-light-mid) !important;
+    color: var(--gameboy-dark) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.btn-danger, .btn-outline-danger {
+    background-color: var(--gameboy-dark) !important;
+    color: var(--gameboy-light) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.btn-warning {
+    background-color: var(--gameboy-screen) !important;
+    color: var(--gameboy-dark) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.btn-secondary, .btn-outline-secondary {
+    background-color: var(--gameboy-light-mid) !important;
+    color: var(--gameboy-dark) !important;
+    border-color: var(--gameboy-border) !important;
+}
+
+.btn:disabled {
+    opacity: 0.6 !important;
+    filter: grayscale(0.3) !important;
+}
+
+/* Badges */
+.badge {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 5px !important;
+    text-transform: uppercase !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--gameboy-border) !important;
+    padding: 0.25rem 0.4rem !important;
+    margin: 0.1rem !important;
+    box-shadow: 1px 1px 0px var(--gameboy-border) !important;
+}
+
+/* Type badges - keeping some color for type identification */
+.badge.bg-danger { background-color: #8B0000 !important; color: var(--gameboy-light) !important; }
+.badge.bg-primary { background-color: var(--gameboy-dark-mid) !important; color: var(--gameboy-light) !important; }
+.badge.bg-success { background-color: var(--gameboy-light-mid) !important; color: var(--gameboy-dark) !important; }
+.badge.bg-warning { background-color: var(--gameboy-screen) !important; color: var(--gameboy-dark) !important; }
+.badge.bg-info { background-color: var(--gameboy-light) !important; color: var(--gameboy-dark) !important; }
+.badge.bg-dark { background-color: var(--gameboy-dark) !important; color: var(--gameboy-light) !important; }
+.badge.bg-secondary { background-color: var(--gameboy-light-mid) !important; color: var(--gameboy-dark) !important; }
+
+/* Search Bar */
+.input-group {
+    margin-bottom: 1rem !important;
+}
+
+.form-control {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 8px !important;
+    background-color: var(--gameboy-light) !important;
+    border: 2px solid var(--gameboy-border) !important;
+    border-radius: 0 !important;
+    color: var(--gameboy-dark) !important;
+    padding: 0.75rem !important;
+    box-shadow: var(--retro-inset) !important;
+}
+
+.form-control:focus {
+    background-color: var(--gameboy-screen) !important;
+    border-color: var(--gameboy-dark) !important;
+    color: var(--gameboy-dark) !important;
+    box-shadow: var(--retro-inset), 0 0 0 2px var(--gameboy-dark-mid) !important;
+}
+
+.form-control::placeholder {
+    color: var(--gameboy-dark-mid) !important;
+    opacity: 0.7 !important;
+}
+
+.input-group-text {
+    background-color: var(--gameboy-dark-mid) !important;
+    border: 2px solid var(--gameboy-border) !important;
+    border-radius: 0 !important;
+    color: var(--gameboy-light) !important;
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 10px !important;
+}
+
+/* Alerts */
+.alert {
+    font-family: 'Press Start 2P', monospace !important;
+    font-size: 8px !important;
+    border-radius: 0 !important;
+    border: 3px solid var(--gameboy-border) !important;
+    padding: 1rem !important;
+    margin: 1rem 0 !important;
+    text-transform: uppercase !important;
+    box-shadow: var(--retro-shadow) !important;
+}
+
+.alert-info {
+    background-color: var(--gameboy-light) !important;
+    color: var(--gameboy-dark) !important;
+}
+
+.alert-success {
+    background-color: var(--gameboy-light-mid) !important;
+    color: var(--gameboy-dark) !important;
+}
+
+.alert-danger {
+    background-color: var(--gameboy-dark) !important;
+    color: var(--gameboy-light) !important;
+}
+
+/* Team Sidebar Specific */
+.sticky-top {
+    top: 1rem !important;
+}
+
+/* Empty slots styling */
+.card[style*="dashed"] {
+    background-color: transparent !important;
+    border: 2px dashed var(--gameboy-dark-mid) !important;
+    box-shadow: none !important;
+}
+
+/* Spinner */
+.spinner-border {
+    border-color: var(--gameboy-dark-mid) !important;
+    border-right-color: transparent !important;
+    width: 1rem !important;
+    height: 1rem !important;
+    border-width: 2px !important;
+}
+
+/* Text utilities */
+.text-muted {
+    color: var(--gameboy-dark-mid) !important;
+}
+
+.text-center small {
+    font-size: 6px !important;
+    color: var(--gameboy-dark-mid) !important;
+    text-transform: uppercase !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 6px !important;
+    }
+
+    .navbar-brand {
+        font-size: 10px !important;
+    }
+
+    .navbar .btn {
+        font-size: 6px !important;
+        padding: 6px 8px !important;
+    }
+
+    h2 { font-size: 10px !important; }
+    h3 { font-size: 9px !important; }
+    h4, h5, h6 { font-size: 8px !important; }
+
+    .card-body {
+        padding: 0.5rem !important;
+    }
+
+    .btn {
+        font-size: 5px !important;
+        padding: 0.4rem 0.6rem !important;
+    }
+
+    .badge {
+        font-size: 4px !important;
+    }
+
+    .form-control {
+        font-size: 6px !important;
+    }
+
+    .alert {
+        font-size: 6px !important;
+    }
+}
+
+/* Loading screen styling */
+.spinner-border-sm {
+    width: 0.8rem !important;
+    height: 0.8rem !important;
+    border-width: 1px !important;
+}
+
+/* Custom animations for retro feel */
+@keyframes pixelFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: pixelFadeIn 0.3s ease-out !important;
+}
+
+/* Make images more pixelated */
+img {
+    image-rendering: -moz-crisp-edges !important;
+    image-rendering: -webkit-crisp-edges !important;
+    image-rendering: pixelated !important;
+    image-rendering: crisp-edges !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gameboy-light-mid);
+    border: 1px solid var(--gameboy-border);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gameboy-dark-mid);
+    border: 1px solid var(--gameboy-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gameboy-dark);
+}

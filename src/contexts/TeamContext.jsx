@@ -3,7 +3,7 @@ import React, { createContext, useState, useEffect, useCallback } from "react";
 export const TeamContext = createContext();
 
 export const TeamProvider = ({ children }) => {
-    // Initialize team from localStorage
+    // Initialize team from localStorage with error handling
     const [team, setTeam] = useState(() => {
         try {
             const savedTeam = localStorage.getItem("pokemonTeam");
