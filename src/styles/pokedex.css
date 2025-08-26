@@ -25,8 +25,15 @@
     text-align: center;
     box-shadow: 6px 6px 0 var(--retro-border);
     position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+
 }
 
+/* Hover effect */
+.pokedex-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 6px 6px 0 var(--retro-border, #111);
+}
 .pokedex-header {
     font-size: var(--font-size-medium);
     margin-bottom: var(--spacing-sm);
