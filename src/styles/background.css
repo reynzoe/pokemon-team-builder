@@ -1,0 +1,20 @@
+.app-container {
+    min-height: 100vh;
+    background-color: #f9f9f9; /* light neutral base */
+    background-image:
+            repeating-linear-gradient(
+                    0deg,
+                    rgba(0, 0, 0, 0.15), /* subtle red line */ rgba(7, 2, 2, 0.15) 1px,
+                    transparent 1px,
+                    transparent 64px
+            ),
+            repeating-linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.15),
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 1px,
+                    transparent 64px
+            );
+    background-size: 64px 64px; /* doubled square size */
+    background-attachment: fixed;
+}

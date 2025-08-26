@@ -11,8 +11,6 @@ const PokemonCard = ({ pokemon }) => {
     const handleAddToTeam = async () => {
         if (!isDisabled) {
             setIsAdding(true);
-
-            // Add a small delay for visual feedback
             setTimeout(() => {
                 addToTeam(pokemon);
                 setIsAdding(false);
@@ -47,39 +45,37 @@ const PokemonCard = ({ pokemon }) => {
     };
 
     return (
-        <div className={`card h-100 shadow-sm ${isAdding ? 'border-warning' : ''}`}>
-            <img
-                src={pokemon.img}
-                alt={pokemon.name}
-                className="card-img-top"
-                style={{
-                    height: "120px",
-                    objectFit: "contain",
-                    padding: "10px",
-                    transform: isAdding ? 'scale(1.05)' : 'scale(1)',
-                    transition: 'transform 0.3s ease'
-                }}
-            />
-            <div className="card-body d-flex flex-column">
-                <div className="d-flex justify-content-between align-items-start mb-2">
-                    <h6 className="card-title text-capitalize mb-0">{pokemon.name}</h6>
-                    <span className="badge bg-secondary">#{pokemon.id}</span>
-                </div>
+        <div className="pokedex-card">
+            {/* Header */}
+            <div className="pokedex-header">
+                <span className="pokemon-name text-capitalize">{pokemon.name}</span>
+            </div>
 
-                <div className="mb-auto">
-                    {pokemon.types.map((type) => (
-                        <span
-                            key={type}
-                            className={`badge me-1 mb-1 bg-${getTypeColor(type)}`}
-                            style={{ fontSize: "0.7rem" }}
-                        >
-                            {type}
-                        </span>
-                    ))}
+            {/* Main Section */}
+            <div className="pokedex-main">
+                <img
+                    src={pokemon.img}
+                    alt={pokemon.name}
+                    className="pokemon-sprite"
+                />
+                <div className="pokemon-details">
+                    <div className="pokemon-types">
+                        {pokemon.types.map((type) => (
+                            <span
+                                key={type}
+                                className={`badge bg-${getTypeColor(type)} type-badge`}
+                            >
+                                {type}
+                            </span>
+                        ))}
+                    </div>
                 </div>
+            </div>
 
+            {/* Button */}
+            <div className="pokedex-menu">
                 <button
-                    className={`btn btn-${getButtonVariant()} btn-sm mt-2`}
+                    className={`menu-btn btn-${getButtonVariant()}`}
                     disabled={isDisabled || isAdding}
                     onClick={handleAddToTeam}
                 >
