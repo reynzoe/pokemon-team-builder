@@ -1,190 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-:root {
-    --retro-bg: #f8f8f8;
-    --retro-border: #333232;
-    --retro-primary: #ff0000;
-    --retro-secondary: #23b800;
-    --retro-green: #00a000;
-    --retro-yellow: #f6c800;
-    --retro-text: #222;
-}
+@import url("./variables.css");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Press Start 2P', cursive;
-}
-
-body {
-    cursor: url('assets/masterball.png') 16 16, auto;
-}
-
-
-.header {
-    text-align: center;
-    padding: 20px;
-    border: 4px solid var(--retro-border);
-    background: var(--retro-yellow);
-    font-size: 18px;
-}
-
-/* ============================= */
-/* SEARCH BAR                    */
-/* ============================= */
-.search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    max-width: 600px;
-}
-
-.search-bar {
-    flex: 1;
-    padding: 12px;
-    border: 4px solid var(--retro-border);
-    background: #fff;
-    font-size: 12px;
-    text-transform: uppercase;
-    box-shadow: 4px 4px 0 var(--retro-border);
-}
-
-
-/* ============================= */
-/* POKEDEX GRID & CARD           */
-/* ============================= */
-
-.pokedex-card {
-    border: 4px solid var(--retro-border);
-    background: #f3f3f3;
-    padding: 12px;
-    text-align: center;
-    box-shadow: 6px 6px 0 var(--retro-border);
-    position: relative;
-}
-
-.pokedex-header {
-    font-size: 15px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-.pokemon-sprite {
-    width: 120px;
-    height: 120px;
-    image-rendering: pixelated;
-}
-
-.pokemon-types {
-    margin-top: 8px;
-}
-
-.type-badge {
-    display: inline-block;
-    border: 2px solid var(--retro-border);
-    padding: 4px 6px;
-    font-size: 8px;
-    margin: 2px;
-    background: #eee;
-    text-transform: uppercase;
-}
-
-/* ============================= */
-/* BUTTONS                       */
-/* ============================= */
-.menu-btn {
-    margin-top: 12px;
-    padding: 8px;
-    width: 100%;
-    border: 4px solid var(--retro-border);
-    background: var(--retro-primary);
-    color: #fff;
-    font-size: 10px;
-    text-transform: uppercase;
-    cursor: pointer;
-    box-shadow: 4px 4px 0 var(--retro-border);
-    transition: all 0.1s ease-in-out;
-}
-
-.menu-btn:disabled {
-    background: #e8d40d;
-    cursor: not-allowed;
-}
-
-.menu-btn:hover:enabled {
-    background: var(--retro-secondary);
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--retro-border);
-}
-
-/* ============================= */
-/* TEAM SIDEBAR                  */
-/* ============================= */
-.team-sidebar {
-    position: sticky;
-    top: 0;
-    align-self: flex-start;
-    border: 4px solid var(--retro-border);
-    background: #9da3bc;
-    padding: 10px;
-    box-shadow: 6px 6px 0 var(--retro-border);
-}
-
-.team-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-size: 10px;
-}
-
-.team-slot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid var(--retro-border);
-    padding: 4px;
-    margin-bottom: 20px;
-    background: #ffffff;
-}
-
-.empty-slot {
-    color: #999;
-    text-align: center;
-    font-size: 12px;
-}
-
-.team-sprite {
-    width: 40px;
-    height: 40px;
-    image-rendering: pixelated;
-}
-
-.remove-btn {
-    background: var(--retro-primary);
-    color: #fff;
-    border: 2px solid var(--retro-border);
-    padding: 4px 6px;
-    cursor: pointer;
-}
-
-.remove-btn:hover {
-    background: var(--retro-secondary);
-}
-
-/* ============================= */
-/* RESPONSIVE FIXES              */
-/* ============================= */
-@media (max-width: 768px) {
-    .pokedex-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-
-    .pokemon-sprite {
-        width: 90px;
-        height: 90px;
-    }
+    font-family: var(--retro-font);
 }
 
 html, body, #root {
@@ -193,3 +13,18 @@ html, body, #root {
     padding: 0;
 }
 
+body {
+    cursor: url('assets/masterball.png') 16 16, auto;
+}
+
+.loading {
+    text-align: center;
+    color: var(--retro-secondary);
+    font-size: var(--font-size-medium);
+}
+
+.error {
+    text-align: center;
+    color: red;
+    font-size: var(--font-size-medium);
+}

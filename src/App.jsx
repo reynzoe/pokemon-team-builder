@@ -3,7 +3,10 @@ import { TeamProvider } from "./contexts/TeamContext";
 import Pokedex from "./components/Pokedex";
 import TeamView from "./components/TeamView";
 import "./styles/global.css";
-import "./styles/background.css";
+import "./styles/header.css";
+import "./styles/pokedex.css";
+import "./styles/buttons.css";
+import "./styles/teamSidebar.css";
 
 function App() {
     const [activeTab, setActiveTab] = useState("pokedex");

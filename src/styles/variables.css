@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+    /* Colors */
+    --retro-bg: #f8f8f8;
+    --retro-border: #333232;
+    --retro-primary: #ff0000;
+    --retro-secondary: #23b800;
+    --retro-green: #00a000;
+    --retro-yellow: #f6c800;
+    --retro-text: #222;
+
+    /* Typography */
+    --retro-font: 'Press Start 2P', cursive;
+    --font-size-small: 10px;
+    --font-size-medium: 14px;
+    --font-size-large: 18px;
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 20px;
+}

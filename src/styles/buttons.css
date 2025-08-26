@@ -1,0 +1,24 @@
+.menu-btn {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    width: 100%;
+    border: 4px solid var(--retro-border);
+    background: var(--retro-primary);
+    color: #fff;
+    font-size: var(--font-size-small);
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--retro-border);
+    transition: all 0.1s ease-in-out;
+}
+
+.menu-btn:disabled {
+    background: #e8d40d;
+    cursor: not-allowed;
+}
+
+.menu-btn:hover:enabled {
+    background: var(--retro-secondary);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--retro-border);
+}
