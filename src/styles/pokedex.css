@@ -26,7 +26,6 @@
     box-shadow: 6px 6px 0 var(--retro-border);
     position: relative;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
-
 }
 
 /* Hover effect */
@@ -59,6 +58,7 @@
     background: #eee;
     text-transform: uppercase;
 }
+
 
 @media (max-width: 768px) {
     .pokedex-grid {

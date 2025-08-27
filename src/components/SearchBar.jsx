@@ -13,7 +13,7 @@ const SearchBar = ({ search, setSearch }) => {
             />
             {search && (
                 <button
-                    className="menu-btn"
+                    className="clear-btn"
                     onClick={() => setSearch("")}
                 >
                     Clear

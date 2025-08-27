@@ -2,13 +2,20 @@
     position: sticky;
     top: 0;
     align-self: flex-start;
-    border: 4px solid var(--retro-border);
-    background: #9da3bc;
+    border:  5px solid var(--retro-border);
+    background: #ed1226;
     padding: var(--spacing-md);
     box-shadow: 6px 6px 0 var(--retro-border);
 }
 
+.empty-message {
+    color: white;
+    text-shadow: 2px 2px 0 var(--retro-border);
+}
+
 .team-header {
+    color:white;
+    text-shadow: 2px 2px 0 var(--retro-border);
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--spacing-md);
@@ -44,6 +51,7 @@
     padding: var(--spacing-xs) var(--spacing-sm);
     cursor: pointer;
 }
+
 
 .remove-btn:hover {
     background: var(--retro-secondary);
